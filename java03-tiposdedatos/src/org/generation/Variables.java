@@ -109,7 +109,110 @@ public class Variables {
 		System.out.println("La letra L: " + letraL);
 		char letraM = 77; // M
 		System.out.println("La letra M: " + letraM);
+	// Formas de representar un número
+	// Representación decimal
+		System.out.println("Representación decimal: " + 26);
+		System.out.println("Representación hexadecimal: " + 0x1a);
+		System.out.println("Representación binaria: " + 0b11010);
+	// Para las literales numéricas se puede usar el guión bajo _ para separar números
+	// No se puede escribir _ al inicio o al final de la literal
+	// No se puede escribir _ junto a un punto decimal
+	// No se puede escribir _ antes de la F o L
+		int numeroSeparados = 12_345;
+		float numeroFloatSeparados = 12_345.456_365F;
 		
-	}	
+	// -------------------------------------------------------------------------------
+	// Conversion de tipos de datos
+		byte coquita600ml = 60;
+		// upcasting
+		short coquita2000ml = coquita600ml;
+		// downcasting
+		short pozoleGrande1L = 259;
+		byte pozoleBurbuja = (byte) pozoleGrande1L;
+		System.out.println("Pozole burbuja: " + pozoleBurbuja);		
+		
+	// -------------------------------------------------
+	// Objetos de tipo String
+	// Se definen entre comillas dobles.
+	// Si deseas imprimir comillas dobles en el mensaje, se usa el caracter de escape \		
+	// \b (backspace), \t (tab), \n (line feed), \f (form feed), \r (carriage return), 
+	// \" (double quote), \' (single quote), and \\ (backslash).
+		String myVarString = "Holi \"Crayoli\"";
+		System.out.println("Mensaje string: " + myVarString);
+		
+	// Convertir de String a número
+		byte edadMascota = Byte.parseByte("10");
+		double edadPlaneta = Double.parseDouble("456.8956");
+		System.out.println(edadMascota + " , " + edadPlaneta);
+	
+	// Convertir números a String
+		String edadString = String.valueOf(4568);
+	
+	// Obteniendo la longitud de un String
+		System.out.println("El número de digitos de edadString es de: " + edadString.length());
+	
+	// Obteniendo el primer caracter de un String
+		System.out.println("El primer caracter de " + edadString + " es: " + edadString.charAt(0));
+		
+	// ----------------------------------------------------------------
+	// Operadores numéricos.
+		int opA = 5;
+		int opB = 6;
+		int suma = opA + opB;
+		int resta = opA - opB;
+		int multiplica = (int)(opA * opB * 1.01);
+		double multiplicaDouble = (opA * opB * 1.01);
+		int division = opA / opB;
+		double divisionDouble = 1.0 * opA / opB;
+		int residuo = opA % 2;
+		
+		System.out.println("Suma es: " + suma);
+		System.out.println("Resta es: " + resta);
+		System.out.println("Multiplica es: " + multiplica);
+		System.out.println("MultiplicaDouble es: " + multiplicaDouble);
+		System.out.println("Division es: " + division);
+		System.out.println("DivisionDouble es: " + divisionDouble);
+		System.out.println("DivisionDouble es: " + residuo);
+		
+		int valorInicial = 10;
+		System.out.println("Preincremento: " + ++valorInicial);
+		System.out.println("Postincremento: " + valorInicial++);
+		System.out.println("Valor final: " + valorInicial);
+		valorInicial = 33;
+		System.out.println("Predecremento: " + --valorInicial);
+		System.out.println("Postdecremento: " + valorInicial--);
+		System.out.println("Valor final: " + valorInicial);
+		
+		// Operaciones con valores enteros
+		byte edadGato = 10;
+		short dobleDeEdad = (short)(edadGato * 2);
+		
+		// Operadores comparativos
+		// <, <=, >, >=, ==, !=
+		int numEmpleados = 1000;
+		System.out.println("Empleados > 1000: " + (numEmpleados > 1000));
+		System.out.println("Empleados >= 1000: " + (numEmpleados >= 1000));
+		System.out.println("Empleados == 1000: " + (numEmpleados == 1000));
+		System.out.println("Empleados != 1000: " + (numEmpleados != 1000));
+		
+		// Operadores lógicos
+		// && (AND) retorna true si ambos operadores son true
+		// || (OR) retorna true si cualquiera de los operandos es true
+		// ! (NOT) invierte el resultado booleano
+		
+		System.out.println("Empleados > 0 && Empleados < 2000: " + (numEmpleados > 0 && numEmpleados < 2000));
+		
+		boolean a = true;
+		boolean b = false;
+		boolean c = true;
+		System.out.println( (a && b) || (a && c) );
+		System.out.println( a || b || c && a );
+		System.out.println( !(a || b) && (!a || c) );
+		System.out.println( a || b && c || a && b );
+
+		// -------------------------------------------------------------------
+		int divisionPorCero = 45 / 0;
+		
+	}
 
 }
