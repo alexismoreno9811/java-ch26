@@ -1,5 +1,7 @@
 package condicionales;
 
+import java.util.Scanner;
+
 public class FlujoControl {
 
 	public static void main(String[] args) {
@@ -54,14 +56,31 @@ public class FlujoControl {
 		 * En caso contrario "La selección está fuera de rango."
 		 */
 		
-		int variable = 1;
+		int rango = 10;
 		
-		if (variable >= 1 && variable <= 10) {
+		if (rango >= 1 && rango <= 10)
 			System.out.println("La selección está en el rango.");
-		} else {
+		else
 			System.out.println("La selección está fuera de rango.");
-		}
 		
+		// --------------------------------------------------------
+		/*
+		 * Operador ternario
+		 * 
+		 * Sintaxis:
+		 * 	expresión ? respuesta_si_es_true : si_es_flase
+		 * 
+		 */
+		
+		String frase = (rango >= 1 && rango <= 10) ? "La selección está en el rango." :	"La selección está fuera de rango.";
+		System.out.println(frase);
+		// ---------------------------------------------------------
+		Scanner myScan;
+		myScan = new Scanner (System.in);
+		System.out.println("Escribe tu nombre: ");
+		String myName = myScan.nextLine(); // leer hasta /n "
+		System.out.println("Tu nombre es: " + myName);
+
 	}
 
 }
