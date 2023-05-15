@@ -75,12 +75,29 @@ public class FlujoControl {
 		String frase = (rango >= 1 && rango <= 10) ? "La selección está en el rango." :	"La selección está fuera de rango.";
 		System.out.println(frase);
 		// ---------------------------------------------------------
-		Scanner myScan;
+		Scanner myScan; // Scanner sc;
 		myScan = new Scanner (System.in);
-		System.out.println("Escribe tu nombre: ");
-		String myName = myScan.nextLine(); // leer hasta /n "
-		System.out.println("Tu nombre es: " + myName);
+//		System.out.println("Escribe tu nombre: ");
+//		String myName = myScan.next(); // leer toda la línea hasta /n "
+//		System.out.println("Tu nombre es: " + myName);
+//		String myLastName = myScan.nextLine(); // leer toda la línea hasta /n "
+//		System.out.println("Tu apellido es:" + myLastName);
+		
+		System.out.println("Escribe tu edad: ");
+		if(myScan.hasNextInt()) {
+			int age = myScan.nextInt(); // leer un número entero
+			myScan.nextLine(); // Lipmpiar el buffer por si escriben algo despues del número			
 
+			System.out.println("Tu edad es: " + age);
+			System.out.println("Pronto cumpliras: " + (age+1) );
+		} else {
+			System.out.println("Lo siento, no escribiste un número");
+		}
+		
+		
+		myScan.close(); // Cerrar la referencia para liberar memoria.
+		
+		
 	}
 
 }
