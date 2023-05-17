@@ -61,6 +61,7 @@ public class CondicionalSwitch {
 			case 12: mesTxt = "Diciembre";
 					 break;
 			default: mesTxt = "Tu mes no es valido.";
+					 break;
 			}
 			switch (mes) {
 			case 1, 2, 12: estacion = "invierno";
