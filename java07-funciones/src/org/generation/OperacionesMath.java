@@ -35,6 +35,39 @@ public class OperacionesMath {
 		if (redondear)
 			return Math.round(a+b);
 		return (a*1000 + b*1000)/1000;
-	}	
+	}
+	
+	/**
+	 * Obtener raiz cuadrada de un número entero
+	 * @param a valor a obtener la raiz
+	 * @return raiz cuadrada en entero
+	 */
+	int raiz(int a) {
+		return (int)(Math.round(Math.sqrt(a)));
+	}
+	
+	/**
+	 * Obtener raiz cuadrada de un número flotante
+	 * @param a valor a obtener la raiz
+	 * @return raiz cuadrada del valor
+	 */
+	double raiz(double a) {
+		return Math.sqrt(a);
+	}
+	
+	// Métodos estáticos (Static Method)
+	/*
+	 * Los métodos estáticos se asocian a la clase en lugar de la
+	 * instancia.
+	 * Se pueden invocar sin tener que instanciar un objeto.
+	 */
+	
+	static double valorPi() {
+		return Math.PI;
+	}
+	
+	static double piPorNumero(int numero) {
+		return numero * valorPi();
+	}
 	
 }

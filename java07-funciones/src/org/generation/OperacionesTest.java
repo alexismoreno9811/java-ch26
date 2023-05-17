@@ -18,6 +18,14 @@ public class OperacionesTest {
 		
 		System.out.println(operaciones.suma(0.1, 0.5, true)); //1.0
 		
+		System.out.println(operaciones.raiz(12));
+		System.out.println(operaciones.raiz(12.0));
+		
+		// Usar método estatico
+		// System.out.println(operaciones.valorPi());
+		System.out.println(OperacionesMath.valorPi());
+		System.out.println(OperacionesMath.piPorNumero(3));
+		
 	}
 
 }
