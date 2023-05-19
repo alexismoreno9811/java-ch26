@@ -118,8 +118,10 @@ public class FuncionesCajero {
 				sc.nextLine();
 				if (cantidadDeposito > 0 && cantidadDeposito <= saldo) {
 					fecha = new Date();
-					saldo = (saldo*100-((int)(cantidadDeposito*100))) / 100;
-					ultimoMovimiento = " Deposito a tarjeta de credito de $" + cantidadDeposito;
+					int cantidadOperacion =(int)(cantidadDeposito*100);
+					int decimales = (int)((cantidadDeposito - cantidadOperacion/100)*100);
+					saldo = (saldo*100-(cantidadOperacion)) / 100;
+					ultimoMovimiento = " Deposito a tarjeta de credito de $" + cantidadOperacion/100 + "." + decimales;
 					continuar = false;
 				} else if (cantidadDeposito == 0) {
 					continuar = false;
