@@ -19,7 +19,9 @@ public class Pokemon {
 	}
 	
 	// Métodos de instancia
-	
+	void saludo() {
+		System.out.printf("Hola minombre es %s, mido %d cm y peso %.2f kg %n", nombre, alturaCm, pesoKg);
+	}
 	// Métodos de calse
 
 }

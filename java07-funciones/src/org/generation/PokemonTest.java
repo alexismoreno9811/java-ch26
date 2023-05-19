@@ -10,6 +10,10 @@ public class PokemonTest {
 
 		System.out.println(pikachu.nombre);
 		System.out.println(vamoACalmarnos.nombre);
+		
+		pikachu.saludo();
+		vamoACalmarnos.saludo();
+		
 	}
 
 }
