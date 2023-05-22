@@ -11,8 +11,8 @@ public class ATMTest {
 		
 		// Instanciar un objeto de la clase
 		ATM cajeroA;
-		cajeroA = new ATM(50_000.00);
-		ATM cajeroB = new ATM(75_000.00);
+		cajeroA = new ATM("A1", 50_000.00);
+		ATM cajeroB = new ATM("A2", 75_000.00);
 		ATM cajeroC = new ATM(60_000.00);
 		ATM cajeroD= new ATM(65_000.00);
 		ATM cajeroE= new ATM(70_000.00);

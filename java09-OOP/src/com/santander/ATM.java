@@ -29,8 +29,11 @@ public class ATM {
 	
 	// Constructores
 	ATM(String serialNumber, double balance){
-		this.serialNumber = serialNumber;
-		this.balance = balance;
+		//this.serialNumber = serialNumber;
+		//this.balance = balance;
+		// Llamar a otro constructor, se usa this().
+		// Tiene que ser la primera línea
+		this(balance); // ATM()
 	}
 	
 	// Métodos de instancia
