@@ -1,8 +1,13 @@
 package com.citibanamex;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 public class Atm {
 	private int serialNumber;
 	private double balance;
+	private ArrayList<String> log = new ArrayList<>();
 	
 	private static int counterAtm = 1;
 	
@@ -49,10 +54,82 @@ public class Atm {
 	public double deposit(double amount) {
 		if(amount > 0) {
 			// return this.balance = amount;
+			depositLog(amount);
 			return setBalance( getBalance() + amount);
 		} else {
 			return setBalance( getBalance() );
 		}
+	}
+	
+	private void withdrawLog(double amount) {
+		String ANSI_RESET = "\u001B[0m";
+		String ANSI_YELLOW = "\u001B[33m";
+		StringBuilder strBuilder = new StringBuilder();
+		strBuilder.append(ANSI_YELLOW);
+		strBuilder.append(getDate());
+		strBuilder.append(" - Withdraw $ ");
+		strBuilder.append(amount);
+		strBuilder.append(",  Balance: ");
+		strBuilder.append(getBalance());
+		strBuilder.append("\n");
+		strBuilder.append(ANSI_RESET);
+		
+		this.log.add(strBuilder.toString());
+	}
+	
+	private void depositLog(double amount) {
+		String ANSI_RESET = "\u001B[0m";
+		String ANSI_BLUE = "\u001B[34m";
+		StringBuilder strBuilder = new StringBuilder();
+		strBuilder.append(ANSI_BLUE);
+		strBuilder.append(getDate());
+		strBuilder.append(" - Deposit $ ");
+		strBuilder.append(amount);
+		strBuilder.append(",  Balance: ");
+		strBuilder.append(getBalance());
+		strBuilder.append("\n");
+		strBuilder.append(ANSI_RESET);
+		
+		this.log.add(strBuilder.toString());
+	}
+
+	
+	public String getLog() {
+		StringBuilder strBuilder = new StringBuilder();
+		
+		for(String event: this.log) {
+			strBuilder.append(event);			
+		}
+	
+		return strBuilder.toString();
+	}
+	
+	public double withdraw(double amount) {
+		if(amount <= 0 )
+			System.out.println("cantidad no valida");
+		else if(amount > getBalance())
+			System.out.println("Fondos insuficientes");
+		else {
+			withdrawLog(amount);
+			return setBalance( getBalance() - amount);
+		}
+		return  getBalance();
+	}
+	
+	private String getDate() {
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY/MM/DD hh:mm:ss");
+		return dateFormat.format(date);
+	}
+	
+	public String displayInfo() {
+		// return "Serial number: " + getSerialNumber() + ", Amount: $ " + getBalance();
+		StringBuilder strBuilder = new StringBuilder();
+		strBuilder.append("Serial number: ");
+		strBuilder.append(getSerialNumber());
+		strBuilder.append(", Amount: $ ");
+		strBuilder.append(getBalance());
+		return strBuilder.toString();
 	}
 	
 }
