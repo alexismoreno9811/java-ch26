@@ -112,25 +112,28 @@ public class Atm {
 		else if(items > this.log.size()) { 
 			strBuilder.append("Solo cuentas con: ");
 			strBuilder.append(this.log.size());
-			strBuilder.append(" movimientos.");
+			strBuilder.append(" movimientos.\n");
+			for(int i = this.log.size() - 1; i >= 0; i--) {
+				strBuilder.append(this.log.get(i));			
+			}
 		} else {
 			for(int i = this.log.size() - 1; i >= this.log.size() - items; i--) {
 				strBuilder.append(this.log.get(i));			
 			}
 		}
+		
 		return strBuilder.toString();		
 	}
 	
-	public double withdraw(double amount) {
+	public void withdraw(double amount) throws IllegalArgumentException, IllegalStateException{
 		if(amount <= 0 )
-			System.out.println("cantidad no valida");
+			throw new IllegalArgumentException("La cantidad no puede ser menor o igual a 0");
 		else if(amount > getBalance())
-			System.out.println("Fondos insuficientes");
+			throw new IllegalStateException("Fondos insuficientes");
 		else {
 			withdrawLog(amount);
-			return setBalance( getBalance() - amount);
+			setBalance( getBalance() - amount);
 		}
-		return  getBalance();
 	}
 	
 	private String getDate() {

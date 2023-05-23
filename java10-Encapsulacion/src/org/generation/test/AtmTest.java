@@ -13,17 +13,24 @@ public class AtmTest {
 //		Atm cajeroB = new Atm();
 //		Atm cajeroC = new Atm("777000");
 		
-		cajeroA.deposit(4_000);
-		System.out.println(cajeroA.displayInfo());
-		cajeroA.withdraw(2_500);
-		System.out.println(cajeroA.displayInfo());
-		cajeroA.withdraw(1_000);
-		cajeroA.withdraw(500);
-		System.out.println(cajeroA.displayInfo());
+		try {
+			cajeroA.deposit(4_000);
+			System.out.println(cajeroA.displayInfo());
+			cajeroA.withdraw(2_500);
+			System.out.println(cajeroA.displayInfo());
+			cajeroA.withdraw(1_000);
+			cajeroA.withdraw(500);
+			System.out.println(cajeroA.displayInfo());
+			
+			System.out.println(cajeroA.getLog());
+			
+			//cajeroA.withdraw(-3_000);
+			//cajeroA.withdraw(300_000);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		
-		System.out.println(cajeroA.getLog());
-		System.out.println(cajeroA.getLog(5));
-		
+		System.out.println(cajeroA.getLog(20));
 		
 	}
 
