@@ -10,8 +10,8 @@ public class AtmTest {
 		Atm cajeroA = new Atm(9_000.00);
 		// Al usar el constructor por default, se agregue
 		// 100_000 al atributo balance.
-		Atm cajeroB = new Atm();
-		Atm cajeroC = new Atm("777000");
+//		Atm cajeroB = new Atm();
+//		Atm cajeroC = new Atm("777000");
 		
 		cajeroA.deposit(4_000);
 		System.out.println(cajeroA.displayInfo());
@@ -22,6 +22,7 @@ public class AtmTest {
 		System.out.println(cajeroA.displayInfo());
 		
 		System.out.println(cajeroA.getLog());
+		System.out.println(cajeroA.getLog(5));
 		
 		
 	}

@@ -104,6 +104,23 @@ public class Atm {
 		return strBuilder.toString();
 	}
 	
+	public String getLog(int items) {
+		StringBuilder strBuilder = new StringBuilder();
+		
+		if (items <= 0)
+			strBuilder.append("Numero de movimientos a visualizar no valido");
+		else if(items > this.log.size()) { 
+			strBuilder.append("Solo cuentas con: ");
+			strBuilder.append(this.log.size());
+			strBuilder.append(" movimientos.");
+		} else {
+			for(int i = this.log.size() - 1; i >= this.log.size() - items; i--) {
+				strBuilder.append(this.log.get(i));			
+			}
+		}
+		return strBuilder.toString();		
+	}
+	
 	public double withdraw(double amount) {
 		if(amount <= 0 )
 			System.out.println("cantidad no valida");
