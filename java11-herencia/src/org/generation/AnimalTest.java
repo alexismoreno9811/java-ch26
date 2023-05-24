@@ -12,7 +12,7 @@ public class AnimalTest {
 		
 		//Dog solovino = new Dog("Solovino");
 		Animal solovino = new Dog("Solovino");
-		Animal hercules = new Chihuahua("Hercules");
+		Animal hercules = new Chihuahua("Hércules");
 		Animal benancio = new Malinois("Benancio");
 		Animal colmillo = new Wolf("Colmillo","Alfa");
 		Animal jacob = new Wolf("Jacob","Beta");
@@ -25,6 +25,8 @@ public class AnimalTest {
 		shelter.add(jacob);
 		
 		shelter.forEach(animal -> makeNoiseCanine(animal));
+		
+		System.out.println(((Chihuahua)hercules).trick());
 
 	}
 	
