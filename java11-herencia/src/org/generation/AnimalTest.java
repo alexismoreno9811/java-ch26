@@ -27,6 +27,9 @@ public class AnimalTest {
 		shelter.forEach(animal -> makeNoiseCanine(animal));
 		
 		System.out.println(((Chihuahua)hercules).trick());
+		System.out.println(((Chihuahua)hercules).greeting());
+		System.out.println(hercules);
+		System.out.println(shelter);
 
 	}
 	
