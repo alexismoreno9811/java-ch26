@@ -212,7 +212,6 @@ public class Variables {
 
 		// -------------------------------------------------------------------
 		// int divisionPorCero = 45 / 0; En Java ocurre una excepción al realizar / cero
-		
 	}
 
 }
