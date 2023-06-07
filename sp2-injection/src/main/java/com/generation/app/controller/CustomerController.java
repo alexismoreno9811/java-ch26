@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.generation.app.model.Customer;
 
+import lombok.extern.slf4j.Slf4j;
+
 /*
  * La inyección de dependencias es un patron de diseño que permite
  * la creación de objetos y la gestión de sus dependencias de manera
@@ -20,6 +22,7 @@ import com.generation.app.model.Customer;
  * de Spring.
  */
 
+@Slf4j
 @RestController
 @RequestMapping("api/customers")
 public class CustomerController {
@@ -31,11 +34,13 @@ public class CustomerController {
 	 */
 	@Autowired
 	Customer customer;
+	{
+		log.info("Se inicializa CustomerController");
+	}
 	
 	@GetMapping
 	public Customer getCustomerById() {
 		
-		customer.setId(10);
 		customer.setFirstName("Pato");
 		customer.setLastName("Donald");
 		customer.setEmail("pato@google.com");
