@@ -1,13 +1,18 @@
 package com.generation.app.service.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.generation.app.dto.CustomerDto;
 import com.generation.app.entity.Customer;
+import com.generation.app.mapper.CustomerMapper;
 import com.generation.app.repository.CustomerRepository;
 import com.generation.app.service.CustomerService;
+
+
 
 /*
  * @Service indica que la clase es un componente de servicio. SpringBoot registra la clase
@@ -18,6 +23,7 @@ import com.generation.app.service.CustomerService;
  * realizar operaciones más complejas. Interactuan con el repositorio de datos, llama a otros
  * servicios, realiza cálculos, filtros, etc.
  */
+
 @Service
 public class CustomerServiceImpl implements CustomerService{
 	
@@ -25,9 +31,15 @@ public class CustomerServiceImpl implements CustomerService{
 	CustomerRepository customerRepository;
 
 	@Override
-	public Customer createCustomer(Customer customer) {
-		// TODO crear Cliente
-		return null;
+	public CustomerDto createCustomer(CustomerDto customerDto) {
+		//TODO verificar si el email existe
+		//TODO veirifcar que los atributos esten dentro de los parametros establecidos. 
+		Customer customer = CustomerMapper.mapToCustomer(customerDto);
+		
+		customer.setId(0);
+		Customer savedCustomer = customerRepository.save(customer);
+		
+		return CustomerMapper.mapToCustomerDto(savedCustomer);
 	}
 
 	@Override
@@ -49,9 +61,21 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public List<Customer> getAllActiveCustomers() {
+	public List<CustomerDto> getAllActiveCustomers() {
 		List<Customer> customers = customerRepository.findAllCustomerByActive(true);
-		return customers;
+//		List<CustomerDto> customersDto = new ArrayList<>();
+//		customers.forEach(customer->{
+//			customersDto.add(CustomerMapper.mapToCustomerDto(customer));
+//		});
+		// Los streams se introduce en Java 8 y permite operar de manera
+		// eficiente y concisa en colecciones.
+		// Se puede realizar operaciones como: mapeo, ordenación, agrupación, reducción, etc.
+		List<CustomerDto> customersDto = customers
+				.stream()
+				.map(customer-> CustomerMapper.mapToCustomerDto(customer))
+				.collect(Collectors.toList()); // recopila los elementos del stream en una estructura especificada.
+		
+		return customersDto;
 	}
 
 	@Override
@@ -61,9 +85,15 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public Void deleteCustomer(long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteUser(long id) {
+		/*
+		 * La clase Optional es una clase contenedora que se utiliza para representar un valor
+		 * que puede ser nulo.
+		 */
+		Customer existingCustomer = customerRepository.findById(id)
+				.orElseThrow(()->new IllegalStateException("User does not exist qhit id: " + id));
+		existingCustomer.setActive(false);
+		customerRepository.save(existingCustomer);
 	}
 
 }

@@ -2,6 +2,7 @@ package com.generation.app.service;
 
 import java.util.List;
 
+import com.generation.app.dto.CustomerDto;
 import com.generation.app.entity.Customer;
 
 public interface CustomerService {
@@ -11,7 +12,7 @@ public interface CustomerService {
 	 * @param customer datos enviados por la solicitud HTTP
 	 * @return el registro del cliente con el id asignado por la DB
 	 */
-	Customer createCustomer(Customer customer);
+	CustomerDto createCustomer(CustomerDto customerDto);
 	
 	/**
 	 * Retornar los datos del cliente por medio de su id
@@ -37,7 +38,7 @@ public interface CustomerService {
 	 * Obtener todos los registros de los clientes activos
 	 * @return lista de clientes activos
 	 */
-	List<Customer> getAllActiveCustomers();
+	List<CustomerDto> getAllActiveCustomers();
 	
 	/**
 	 * Actualizar el registro con el cliente indicado
@@ -50,5 +51,5 @@ public interface CustomerService {
 	 * Establece como inactivo al cliente con el id indicado. Field active = false.
 	 * @param id cliente
 	 */
-	Void deleteCustomer(long id);
+	void deleteUser(long id);
 }
