@@ -45,4 +45,10 @@ public interface CustomerService {
 	 * @return el registro del cliente con los datos modificados
 	 */
 	Customer updateCustomer(Customer customer);
+	
+	/**
+	 * Establece como inactivo al cliente con el id indicado. Field active = false.
+	 * @param id cliente
+	 */
+	Void deleteCustomer(long id);
 }
